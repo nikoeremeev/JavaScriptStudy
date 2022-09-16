@@ -28,9 +28,12 @@
 <script>
   "use strict";
 
-  let number = +prompt('Введите число:');
-  alert(`В числе ${number} количесвто сотен: ${parseInt(number%1000/100)},\
- десятков: ${parseInt(number%100/10)}, единиц: ${parseInt(number%10)}`);
+  const number = +prompt('Введите число:');
+  const hundreds = Math.trunc(number%1000/100);
+  const dozens = Math.trunc(number%100/10);
+  const pieces = Math.trunc(number%10);
+  alert(`В числе ${number} количесвто сотен: ${hundreds},\
+ десятков: ${dozens}, единиц: ${pieces}`);
 </script>
 </body>
 </html>
