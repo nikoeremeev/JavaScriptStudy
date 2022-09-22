@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+    <script>
+        "use strict";
+
+        /**
+        * Функция сложения двух чисел
+        * @param {number} a - число А
+        * @param {number} b - число В
+        * @return {number} - сумма чисел 
+         */
+        function sum(a, b) {
+            return a + b;
+        }
+
+        /**
+        * Функция разности двух чисел
+        * Из большего вычитается меньшее число, если числа одинаковые -
+        * функция возвращает ноль.
+        * @param {number} a - число А
+        * @param {number} b - число В
+        * @return {number} - разность чисел 
+         */
+        function diff(a, b) {
+            if (a > b) {
+                return a - b;
+            }
+            return b - a;
+        }
+
+        /**
+        * Функция умножения двух чисел
+        * @param {number} a - число А
+        * @param {number} b - число В
+        * @return {number} - произведение чисел 
+         */
+        function mul(a, b) {
+            return a * b;
+        }
+
+        /**
+        * Функция деления двух чисел
+        * @param {number} a - число А
+        * @param {number} b - число В
+        * @return {number} - деление чисел 
+         */
+        function div(a, b) {
+            return a / b;
+        }
+
+        /**
+        * Функция возвращает результат передачи двух чисел с знаком операции 
+        * между ними 
+        * @param {Number} arg1 - число А
+        * @param {Number} arg2 - число В
+        * @param {String} operation - знак операции между числами
+         */
+        function mathOperation(arg1, arg2, operation) {
+            if (operation === '+') {
+                return sum(arg1, arg2);
+            } else if (operation === '-') {
+                return diff(arg1, arg2);
+            } else if (operation === '*') {
+                return mul(arg1, arg2);
+            } else if (operation === '/') {
+                return div(arg1, arg2);
+            }
+            return NaN;
+        }
+
+        const numberA = +prompt(`Введите число А: `);
+        const numberB = +prompt(`Введите число B: `);
+        const operation = prompt(`Введите знак операции (+, -, *, /): `);
+        alert(`Результат: ${mathOperation(numberA, numberB, operation)}`);
+    </script>
+</body>
+
+</html>
