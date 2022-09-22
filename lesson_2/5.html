@@ -36,10 +36,11 @@ Infinity делать не нужно, однако, в случае если б
 
         /**
         * Функция сложения двух чисел
-        * @param {Number} a - число А
-        * @param {Number} b - число В
+        * @param {number} a - число А
+        * @param {number} b - число В
+        * @return {number} - сумма чисел 
          */
-         function sum(a, b) {
+        function sum(a, b) {
             return a + b;
         }
 
@@ -47,22 +48,22 @@ Infinity делать не нужно, однако, в случае если б
         * Функция разности двух чисел
         * Из большего вычитается меньшее число, если числа одинаковые -
         * функция возвращает ноль.
-        * @param {Number} a - число А
-        * @param {Number} b - число В
+        * @param {number} a - число А
+        * @param {number} b - число В
+        * @return {number} - разность чисел 
          */
         function diff(a, b) {
             if (a > b) {
                 return a - b;
             }
-            else {
-                return b - a;
-            }
+            return b - a;
         }
 
         /**
         * Функция умножения двух чисел
-        * @param {Number} a - число А
-        * @param {Number} b - число В
+        * @param {number} a - число А
+        * @param {number} b - число В
+        * @return {number} - произведение чисел 
          */
         function mul(a, b) {
             return a * b;
@@ -70,8 +71,9 @@ Infinity делать не нужно, однако, в случае если б
 
         /**
         * Функция деления двух чисел
-        * @param {Number} a - число А
-        * @param {Number} b - число В
+        * @param {number} a - число А
+        * @param {number} b - число В
+        * @return {number} - деление чисел 
          */
         function div(a, b) {
             return a / b;
@@ -84,22 +86,17 @@ Infinity делать не нужно, однако, в случае если б
         * @param {Number} arg2 - число В
         * @param {String} operation - знак операции между числами
          */
-        function mathOperation(arg1, arg2, operation){
-            if (operation == '+'){
+        function mathOperation(arg1, arg2, operation) {
+            if (operation === '+') {
                 return sum(arg1, arg2);
-            }
-            else if (operation == '-'){
+            } else if (operation === '-') {
                 return diff(arg1, arg2);
+            } else if (operation === '*') {
+                return mul(arg1, arg2);
+            } else if (operation === '/') {
+                return div(arg1, arg2);
             }
-            else if (operation == '*'){
-                return mul(arg1,arg2);
-            }
-            else if (operation == '/'){
-                return div(arg1,arg2);
-            }
-            else {
-                return null;
-            }
+            return NaN;
         }
 
         const numberA = +prompt(`Введите число А: `);

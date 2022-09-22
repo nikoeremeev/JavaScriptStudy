@@ -26,13 +26,11 @@
         const numberA = +prompt(`Введите переменную А`);
         const numberB = +prompt(`Введите переменную B`);
         if (numberA > 0 && numberB > 0) {
-            alert(`Разность чисел А и В равна: ${numberA - numberB}`);
-        }
-        else if (numberA < 0 && numberB < 0) {
-            alert(`Произведение чисел А и В равно: ${numberA * numberB}`);
-        }
-        else {
-            alert(`Сумма чисел А и В равна: ${numberA + numberB}`);
+            console.log(`Разность чисел А и В равна: ${numberA - numberB}`);
+        } else if (numberA < 0 && numberB < 0) {
+            console.log(`Произведение чисел А и В равно: ${numberA * numberB}`);
+        } else if (numberA * numberB < 0) {
+            console.log(`Сумма чисел А и В равна: ${numberA + numberB}`);
         }
     </script>
 </body>
