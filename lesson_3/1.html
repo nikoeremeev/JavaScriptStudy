@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <!--
+Обязательное задание.
+
+Необходимо с помощью цикла for вывести следующие 11 строк в консоль:
+0 – это ноль
+1 – нечетное число
+2 – четное число
+3 – нечетное число
+…
+10 – четное число
+-->
+    <script>
+        "use strict";
+
+        /**
+        * Функция проверки четности числа
+        * @param {number} a - число проверки
+        * @return {boolean} - результат проверки 
+         */
+        function isEven(a) {
+            if (a % 2 != 0) {
+                return false;
+            }
+            return true;
+        }
+
+        for (let i = 0; i < 11; i++) {
+            if (i === 0) {
+                console.log(`${i} - это ноль`);
+            } else if (isEven(i)) {
+                console.log(`${i} - четное число`);
+            } else {
+                console.log(`${i} - нечетное число`);
+            }
+        }
+    </script>
+</body>
+
+</html>
