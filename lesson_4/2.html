@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Homework</title>
+  <meta charset="UTF-8">
+  <title>Homework</title>
 </head>
 
 <body>
-    <!--
+  <!--
 Необязательное задание, но желательно сделать.
 
 Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
@@ -49,109 +49,108 @@
 что-нибудь пропустить.
 4. Если непонятно условие - задайте вопрос.
 -->
-    <script>
-        "use strict";
-        // первая часть
-        // стиль ES5
-        function PostES5(authorName, text) {
-            this.authorName = authorName;
-            this.text = text;
-            this.date = new Date();
-        }
+  <script>
+    "use strict";
+    // первая часть
+    // стиль ES5
+    function PostES5(authorName, text) {
+      this.authorName = authorName;
+      this.text = text;
+      this.date = new Date();
+    }
 
-        PostES5.prototype.edit = function (text) {
-            this.text = text;
-            this.date = new Date();
-        }
+    PostES5.prototype.edit = function (text) {
+      this.text = text;
+      this.date = new Date();
+    };
 
-        const post1 = new PostES5("Nikolay", "Some text");
-        console.log(`
+    const post1 = new PostES5("Nikolay", "Some text");
+    console.log(`
           Автор поста: ${post1.authorName}, текст поста ${post1.text}, дата 
           создания: ${post1.date}
           `);
-        post1.edit("Any text");
-        console.log(`
+    post1.edit("Any text");
+    console.log(`
           Автор поста: ${post1.authorName}, текст поста ${post1.text}, дата 
           создания: ${post1.date}
           `);
 
-        // стиль ES6
-        class PostES6 {
-            constructor(authorName, text) {
-                this.authorName = authorName;
-                this.text = text;
-                this.date = new Date();
-            }
+    // стиль ES6
+    class PostES6 {
+      constructor(authorName, text) {
+        this.authorName = authorName;
+        this.text = text;
+        this.date = new Date();
+      }
 
-            edit(text) {
-                this.text = text;
-                this.date = new Date();
-            }
-        }
+      edit(text) {
+        this.text = text;
+        this.date = new Date();
+      }
+    }
 
-        const post2 = new PostES5("Ivan", "TEXT");
-        console.log(`
+    const post2 = new PostES5("Ivan", "TEXT");
+    console.log(`
           Автор поста: ${post2.authorName}, текст поста ${post2.text}, дата 
           создания: ${post2.date}
           `);
-        post2.edit("Any TEXT");
-        console.log(`
+    post2.edit("Any TEXT");
+    console.log(`
           Автор поста: ${post2.authorName}, текст поста ${post2.text}, дата 
           создания: ${post2.date}
           `);
 
-        // вторая часть ES5
-        function AttachedPostES5(authorName, text) {
-            PostES5.call(this, authorName, text);
-            this.highlighted = false;
-        }
+    // вторая часть ES5
+    function AttachedPostES5(authorName, text) {
+      PostES5.call(this, authorName, text);
+      this.highlighted = false;
+    }
 
-        AttachedPostES5.prototype = Object.create(PostES5.prototype);
-        AttachedPostES5.prototype.constructor = AttachedPostES5;
+    AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    AttachedPostES5.prototype.constructor = AttachedPostES5;
 
-        AttachedPostES5.prototype.makeTextHighlighted = function () {
-            this.highlighted = true;
-            this.date = new Date();
-        }
+    AttachedPostES5.prototype.makeTextHighlighted = function () {
+      this.highlighted = true;
+      this.date = new Date();
+    };
 
-        const post3 = new AttachedPostES5("Nikolay", "Some text");
-        console.log(`
+    const post3 = new AttachedPostES5("Nikolay", "Some text");
+    console.log(`
           Автор поста: ${post3.authorName}, текст поста ${post3.text}, дата 
           создания: ${post3.date}, статус поста: ${post3.highlighted}
           `);
-        post3.edit("Any text");
-        post3.makeTextHighlighted();
-        console.log(`
+    post3.edit("Any text");
+    post3.makeTextHighlighted();
+    console.log(`
           Автор поста: ${post3.authorName}, текст поста ${post3.text}, дата 
           создания: ${post3.date}, статус поста: ${post3.highlighted}
           `);
 
-        // вторая часть ES6
-        class AttachedPostES6 extends PostES6 {
-            constructor(authorName, text) {
-                super(authorName, text);
+    // вторая часть ES6
+    class AttachedPostES6 extends PostES6 {
+      constructor(authorName, text) {
+        super(authorName, text);
+      }
+      highlighted = false;
 
-            }
-            highlighted = false;
+      makeTextHighlighted() {
+        this.highlighted = true;
+        this.date = new Date();
+      }
+    }
 
-            makeTextHighlighted() {
-                this.highlighted = true;
-                this.date = new Date();
-            }
-        }
-
-        const post4 = new AttachedPostES5("Petr", "Some text");
-        console.log(`
+    const post4 = new AttachedPostES5("Petr", "Some text");
+    console.log(`
           Автор поста: ${post4.authorName}, текст поста ${post4.text}, дата 
           создания: ${post4.date}, статус поста: ${post4.highlighted}
           `);
-        post4.edit("ANY TEXT");
-        post4.makeTextHighlighted();
-        console.log(`
+    post4.edit("ANY TEXT");
+    post4.makeTextHighlighted();
+    console.log(`
           Автор поста: ${post4.authorName}, текст поста ${post4.text}, дата 
           создания: ${post4.date}, статус поста: ${post4.highlighted}
           `);
-    </script>
+  </script>
 </body>
 
 </html>

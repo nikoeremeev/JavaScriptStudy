@@ -48,14 +48,14 @@
                     hundreds: Math.trunc(number % 1000 / 100),
                     dozens: Math.trunc(number % 100 / 10),
                     units: Math.trunc(number % 10)
-                }
+                };
             } else {
                 console.error(`Ошибка! 
 Необходимо ввести число в диапазоне [0, 999]`);
                 return {};
             }
         }
-        let num = 456;
+        const num = 456;
         console.log(getDigitsOfNumber(num));
     </script>
 </body>
