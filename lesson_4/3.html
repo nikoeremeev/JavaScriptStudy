@@ -33,7 +33,30 @@
     <script>
         "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+        /**
+        * Функция принимает целое положительное число в диапазоне от 0 до 1000 и 
+        * разбивает его на три свойства и возвращает объект с записанными
+        * разрядами числа.
+        * @param {number} num - Число в диапазоне [0, 999].
+        * @returns {object} Объект с разрядами числа или пустой объект в случае
+        * ошибки.
+        */
+
+        function getDigitsOfNumber(number) {
+            if (Number.isInteger(number) && number >= 0 && number < 1000) {
+                return {
+                    hundreds: Math.trunc(number % 1000 / 100),
+                    dozens: Math.trunc(number % 100 / 10),
+                    units: Math.trunc(number % 10)
+                }
+            } else {
+                console.error(`Ошибка! 
+Необходимо ввести число в диапазоне [0, 999]`);
+                return {};
+            }
+        }
+        let num = 456;
+        console.log(getDigitsOfNumber(num));
     </script>
 </body>
 
