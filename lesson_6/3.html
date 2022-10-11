@@ -42,12 +42,32 @@
     1. При наведении на любую из звезд, данной звезде должен ставиться класс
     golden, также такой класс должен ставиться всем звездам до нее слева.
     */
-
+    document.querySelector('.stars_container')
+      .addEventListener('mouseover', e => {
+        if (!e.target.classList.contains('fas')) {
+          return;
+        }
+        let star = e.target;
+        do {
+          star.classList.add('golden');
+          star = star.previousElementSibling;
+        } while (star);
+      });
 
     /*
     2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
     задания должны быть удалены.
      */
+    document.querySelector('.stars_container').addEventListener('mouseout', e => {
+      if (!e.target.classList.contains('fas')) {
+        return;
+      }
+      let star = e.target;
+      do {
+        star.classList.remove('golden');
+        star = star.previousElementSibling;
+      } while (star);
+    });
 
 
     /*
@@ -55,7 +75,11 @@
     звезды (временно могут становиться черными). Почему так? Напишите словами.
     Можем ли мы это исправить? Если да, то предложите решение.
     */
-
+    document.querySelector('.stars_container').childNodes.forEach(node => {
+      if (node.nodeName === '#text') {
+        node.remove();
+      }
+    });
 
   </script>
 </body>
