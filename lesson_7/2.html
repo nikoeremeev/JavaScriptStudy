@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .products {
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    .product {
+      float: left;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <button class="menuButton" data-type="phones">Показать смартфоны</button>
+  <button class="menuButton" data-type="tablets">Показать планшеты</button>
+  <button class="menuButton" data-type="tv">Показать телевизоры</button>
+</header>
+
+<div class="products"></div>
+
+<script>
+  /*
+  1. Программист Паша уволился с работы и не закончил задачу.
+  Задача состояла в том, чтобы при клике на какую-либо кнопку в теге header
+  выводить продукты в div с классом products.
+  Продукты, которые надо вывести, валидны и прописаны в объекте products.
+  Однако, Паша явно сделал много ошибок в других кусках кода, вам необходимо
+  исправить все ошибки и внимательно проверить чтоб код работал правильно и
+  ничего лишнего не выводилось в div с классом products.
+  */
+
+  class Product {
+    constructor(id, name, price, imageUrl) {
+      this.id = id;
+      this.name = name;
+      this.price = price;
+      this.imageUrl = imageUrl;
+    }
+
+    /**
+     * @returns {string} html-разметка для товара
+     */
+    getProductMarkup() {
+      return `
+        <div class="product">
+            <div>${name}</div>
+            <img src="${imageUrl}" alt="">
+            <div>Цена: <span>${price}</span> р.</div>
+            <a href="https://example.com/producs/${id}">Подробнее</a>
+        </div>
+      `;
+    }
+  }
+
+  const products = {
+    phones: [
+      new Product(1, "Смартфон 1", "2533", "https://loremflickr.com/200/300/goods?lock=31"),
+      new Product(2, "Смартфон 2", "3123", "https://loremflickr.com/200/300/goods?lock=32"),
+      new Product(3, "Смартфон 3", "6123", "https://loremflickr.com/200/300/goods?lock=33"),
+    ],
+    tablets: [
+      new Product(4, "Плашнет 1", "5239", "https://loremflickr.com/200/300/goods?lock=34"),
+      new Product(5, "Плашнет 2", "6483", "https://loremflickr.com/200/300/goods?lock=35"),
+    ],
+    tv: [
+      new Product(6, "Телевизор 1", "4314", "https://loremflickr.com/200/300/goods?lock=36"),
+      new Product(7, "Телевизор 2", "5412", "https://loremflickr.com/200/300/goods?lock=37"),
+      new Product(8, "Телевизор 3", "3577", "https://loremflickr.com/200/300/goods?lock=38"),
+      new Product(9, "Телевизор 4", "8714", "https://loremflickr.com/200/300/goods?lock=39"),
+    ],
+  };
+
+  const productsEl = document.querySelector('products');
+  document.querySelector('header').addEventListener('click', event => {
+    if (!event.currentTarget.classList.contains('.menuButton')) {
+      return;
+    }
+    productsEl.innerHTML = products[event.currentTarget.dataset.type]
+      .map(product => product.getProductMarkup());
+  });
+
+</script>
+</body>
+</html>
