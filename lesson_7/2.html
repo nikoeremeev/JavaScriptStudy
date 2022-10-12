@@ -52,10 +52,10 @@
       getProductMarkup() {
         return `
         <div class="product">
-            <div>${name}</div>
-            <img src="${imageUrl}" alt="">
-            <div>Цена: <span>${price}</span> р.</div>
-            <a href="https://example.com/producs/${id}">Подробнее</a>
+            <div>${this.name}</div>
+            <img src="${this.imageUrl}" alt="">
+            <div>Цена: <span>${this.price}</span> р.</div>
+            <a href="https://example.com/producs/${this.id}">Подробнее</a>
         </div>
       `;
       }
@@ -79,13 +79,13 @@
       ],
     };
 
-    const productsEl = document.querySelector('products');
+    const productsEl = document.querySelector('.products');
     document.querySelector('header').addEventListener('click', event => {
-      if (!event.currentTarget.classList.contains('.menuButton')) {
+      if (!event.target.classList.contains('menuButton')) {
         return;
       }
-      productsEl.innerHTML = products[event.currentTarget.dataset.type]
-        .map(product => product.getProductMarkup());
+      productsEl.innerHTML = products[event.target.dataset.type]
+        .map(product => product.getProductMarkup()).join("");
     });
 
   </script>
